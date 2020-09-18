@@ -1,8 +1,0 @@
-{
-    "java.project.referencedLibraries": [
-        "lib/**/*.jar",
-        "/Users/JesusUgarte/Downloads/**/*.jar",
-        "/Users/JesusUgarte/Desktop/OOP/junit-platform-console-standalone-1.7.0-all.jar",
-        "/Users/JesusUgarte/Desktop/OOP/junit-4.13.jar"
-    ]
-}
