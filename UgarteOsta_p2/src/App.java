@@ -99,7 +99,7 @@ public class App{
 
         double weight = -1;
 
-        //Checking that numbers are positive
+        //Checking that numbers are positive`
         while (weight < 0){
 
             System.out.println("Please Enter weight in pounds:");

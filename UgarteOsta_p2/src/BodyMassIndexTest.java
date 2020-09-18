@@ -1,6 +1,7 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
+//Testing Clases
 public class BodyMassIndexTest{
 
     @Test
