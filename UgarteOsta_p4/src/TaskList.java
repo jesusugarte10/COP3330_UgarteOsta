@@ -21,7 +21,7 @@ public class TaskList {
         String[] lines = this.Data.split("\\n");
 
         if(validateLenght(placeToedit) && !Emptydata())
-            lines[placeToedit + 1] = (placeToedit + ")" + "[" + editDate + "] " + editTitle + " " + editDescription);
+            lines[placeToedit + 1] = (placeToedit + ")" + "[" + editDate + "] " + editTitle + ": " + editDescription);
 
         return toString(lines);
     }

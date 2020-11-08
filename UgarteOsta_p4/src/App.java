@@ -1,4 +1,7 @@
 import java.util.Scanner;
+
+import javax.xml.crypto.Data;
+
 import java.io.*;
 
 public class App {
@@ -59,15 +62,16 @@ public class App {
 
                 case 2:
 
-                    System.out.print("\nCurrent Tasks\n---------\n");
-                    
+                    System.out.print("\nCurrent Tasks\n---------\n\n");
+                    scan.nextLine();
+
                     //scanning values
-                    System.out.print("\nTask title: ");
-                    String title = scan.next();
-                    System.out.print("\nTask description: ");
-                    String description = scan.next();
-                    System.out.print("\nTask due date (YYYY-MM-DD):");
-                    String date = scan.next();
+                    System.out.print("Task title: ");
+                    String title = scan.nextLine();
+                    System.out.print("Task description: ");
+                    String description = scan.nextLine();
+                    System.out.print("Task due date (YYYY-MM-DD):");
+                    String date = scan.nextLine();
                     System.out.print("\n");
 
                     //add item
@@ -77,19 +81,25 @@ public class App {
 
                 case 3:
 
-                    System.out.print("\nCurrent Tasks\n---------\n");
-                    
+                    System.out.print("\nCurrent Tasks\n---------\n\n");
+                    if(Data.isEmpty())
+                    {
+                        System.out.println("WARNING, UNABLE TO EDIT EMPTY TASK LIST");
+                        break;
+                    }
+
                     List.viewList();
 
+                    scan.nextLine();
                     //scanning values
-                    System.out.print("\n\nWhich task will you edit? ");
+                    System.out.print("Which task will you edit? ");
                     int placeToedit = scan.nextInt();
-                    System.out.print("\nEnter a new title for task " + placeToedit + ":");
-                    String editTitle = scan.next();
-                    System.out.print("\nEnter a new description for task: " + placeToedit + ":");
-                    String editDescription = scan.next();
-                    System.out.print("\nEnter a new task due date (YYYY-MM-DD) for task " + placeToedit + ":");
-                    String editDate = scan.next();
+                    System.out.print("Enter a new title for task " + placeToedit + ":");
+                    String editTitle = scan.nextLine();
+                    System.out.print("Enter a new description for task: " + placeToedit + ":");
+                    String editDescription = scan.nextLine();
+                    System.out.print("Enter a new task due date (YYYY-MM-DD) for task " + placeToedit + ":");
+                    String editDate = scan.nextLine();
                     System.out.print("\n");
 
                     Data = List.editList(placeToedit, editTitle, editDescription, editDate);
@@ -98,10 +108,14 @@ public class App {
 
                 case 4:
 
-                    System.out.print("\nCurrent Tasks\n---------\n");
+                    System.out.print("\nCurrent Tasks\n---------\n\n");
+                    if(Data.isEmpty())
+                    {
+                        System.out.println("WARNING, UNABLE TO EDIT EMPTY TASK LIST");
+                        break;
+                    }
 
                     List.viewList();
-
                     //Task List
                     System.out.print("\n\nWhich task will you remove?: ");
                     int placeToDelete = scan.nextInt();
@@ -111,9 +125,14 @@ public class App {
 
                 case 5:
 
-                    System.out.print("\nCompleted Tasks\n---------\n");
-                    List.viewList();
+                    System.out.print("\nCompleted Tasks\n---------\n\n");
+                    if(Data.isEmpty())
+                    {
+                        System.out.println("WARNING, UNABLE TO EDIT EMPTY TASK LIST");
+                        break;
+                    }
 
+                    List.viewList();
                     // completed tasks
                     System.out.print("\n\nWhich task will you mark as completed?: ");
                     int placeToComplete = scan.nextInt();
@@ -123,7 +142,13 @@ public class App {
 
                 case 6:
 
-                    System.out.print("\nUncompleted Tasks\n---------\n");
+                    System.out.print("\nUncompleted Tasks\n---------\n\n");
+                    if(Data.isEmpty())
+                    {
+                        System.out.println("WARNING, UNABLE TO EDIT EMPTY TASK LIST");
+                        break;
+                    }
+
                     List.viewList();
 
                     System.out.print("\n\nWhich task will you mark as not completed?: ");

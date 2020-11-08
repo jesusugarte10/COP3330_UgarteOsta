@@ -20,7 +20,7 @@ public class TaskItem {
         if(!Validate())
             return this.data;
 
-        this.data = (this.data + "\n" + getsize() + ")" +"["+ this.date + "] " + this.title + " " + this.description);
+        this.data = (this.data + "\n" + getsize() + ")" +"["+ this.date + "] " + this.title + ": " + this.description);
 		return this.data;
     }  
 
