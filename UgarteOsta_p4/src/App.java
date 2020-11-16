@@ -1,7 +1,4 @@
 import java.util.Scanner;
-
-import javax.xml.crypto.Data;
-
 import java.io.*;
 
 public class App {
@@ -92,7 +89,7 @@ public class App {
 
                     scan.nextLine();
                     //scanning values
-                    System.out.print("Which task will you edit? ");
+                    System.out.print("\nWhich task will you edit? ");
                     int placeToedit = scan.nextInt();
                     System.out.print("Enter a new title for task " + placeToedit + ":");
                     String editTitle = scan.nextLine();

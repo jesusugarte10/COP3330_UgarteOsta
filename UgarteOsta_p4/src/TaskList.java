@@ -20,7 +20,7 @@ public class TaskList {
 
         String[] lines = this.Data.split("\\n");
 
-        if(validateLenght(placeToedit) && !Emptydata())
+        if(validateLenght(placeToedit + 1) && !Emptydata())
             lines[placeToedit + 1] = (placeToedit + ")" + "[" + editDate + "] " + editTitle + ": " + editDescription);
 
         return toString(lines);
@@ -29,7 +29,7 @@ public class TaskList {
     public String uncomplete(int placeToUncomplete) {
 
         String[] lines = this.Data.split("\\n");
-        if(validateLenght(placeToUncomplete) && !Emptydata())
+        if(validateLenght(placeToUncomplete + 1) && !Emptydata())
         { 
             if (lines[placeToUncomplete + 1].contains("***"))
                 lines[placeToUncomplete + 1] = lines[placeToUncomplete + 1].substring(3);
@@ -43,7 +43,7 @@ public class TaskList {
 
         String[] lines = this.Data.split("\\n");
 
-        if(validateLenght(placeToComplete) && !Emptydata())
+        if(validateLenght(placeToComplete + 1) && !Emptydata())
         { 
             if (!lines[placeToComplete + 1].contains("***") && validateLenght(placeToComplete))
                 lines[placeToComplete + 1] = ("***" + lines[placeToComplete + 1]);
@@ -57,7 +57,7 @@ public class TaskList {
 
         String[] lines = this.Data.split("\\n");
 
-        if(validateLenght(placeToDelete) && !Emptydata())
+        if(validateLenght(placeToDelete + 1) && !Emptydata())
             lines[placeToDelete + 1] = "";
 
         this.size = getListSize(placeToDelete + 1);
