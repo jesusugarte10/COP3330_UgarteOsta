@@ -10,7 +10,6 @@ public class TaskItemTest {
         assertThrows(IllegalArgumentException.class , () -> new TaskItem("Title", "Description", "321-98-9", ""));
     }
 
-
     @Test
     public void constructorFailsWithInvalidTitle(){
         assertThrows(IllegalArgumentException.class , () -> new TaskItem("", "Description", "2020-01-01",""));

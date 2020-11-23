@@ -1,5 +1,6 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ContactApp {
@@ -20,9 +21,10 @@ public class ContactApp {
             System.out.print("\n\nContact List Main Menu\n---------\n");
             System.out.print("\n1) create a new list\n2) load an existing list\n3) quit\n\n> ");
 
-            int choice = scan.nextInt();
+            int choice = getChoice();
 
             switch (choice) {
+                
                 case 1:
                     System.out.print("\nnew contact list has been created");
                     mainContactApp(list);
@@ -49,6 +51,9 @@ public class ContactApp {
                 case 3:
                     exit = true;
                     break;
+
+                default:
+                    System.out.println("WARNING: Please Enter valid choice");
             }
         }
     }
@@ -64,7 +69,7 @@ public class ContactApp {
             System.out.print("\n\nList Operation Menu\n---------\n");
             System.out.print("\n1) view the list\n2) add an item\n3) edit an item\n4) remove an item\n5) save the current list\n6) quit to the main menu\n\n> ");
             
-            int choice = scan.nextInt();
+            int choice = getChoice();
 
             switch (choice) {
 
@@ -156,6 +161,22 @@ public class ContactApp {
                     exit = true;
                     break;
 
+                default:
+                    System.out.println("WARNING: Please Enter valid choice");
+
+            }
+        }
+    }
+    
+    private static int getChoice(){
+
+        while(true){ 
+            try{   
+                int choice = scan.nextInt();
+                return choice;
+            }catch(InputMismatchException ex){
+                scan.nextLine();
+                System.out.println("WARNING: NOT A NUMBER\nPlease Enter a number Below ");
             }
         }
     }

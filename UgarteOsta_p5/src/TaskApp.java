@@ -1,5 +1,6 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TaskApp {
@@ -20,7 +21,7 @@ public class TaskApp {
             System.out.print("\n\nTask List Main Menu\n------------------\n");
             System.out.print("\n1) create a new list\n2) load an existing list\n3) quit\n\n> ");
 
-            int choice = scan.nextInt();
+            int choice = getChoice();
 
             switch (choice) {
                 case 1:
@@ -34,7 +35,7 @@ public class TaskApp {
                         String Filename = scan.next().toLowerCase();
 
                         while(!Filename.endsWith("_task.txt")){
-                            System.out.print("\nWARNING: FILE SHOULD END WITH _contact.txt");
+                            System.out.print("\nWARNING: FILE SHOULD END WITH _task.txt");
                             System.out.print("\nEnter the filename to load: ");
                             Filename = scan.next().toLowerCase();
                         }
@@ -49,6 +50,9 @@ public class TaskApp {
                 case 3:
                     exit = true;
                     break;
+
+                default:
+                    System.out.println("WARNING: Please Enter valid choice");    
             }
         }
 	}
@@ -64,7 +68,7 @@ public class TaskApp {
             System.out.print("\n\nList Operation Menu\n---------\n");
             System.out.print("\n1) view the list\n2) add an item\n3) edit an item\n4) remove an item\n5) mark an item as completed\n6) unmark an item as completed\n7) save the current list\n8) quit to the main menu\n\n> ");
             
-            int choice = scan.nextInt();
+            int choice = getChoice();
 
             switch(choice){
 
@@ -203,6 +207,21 @@ public class TaskApp {
 
                     exit = true;
                     break;
+                default:
+                    System.out.println("WARNING: Please Enter valid choice");
+            }
+        }
+    }
+
+    private int getChoice(){
+
+        while(true){ 
+            try{   
+                int choice = scan.nextInt();
+                return choice;
+            }catch(InputMismatchException ex){
+                scan.nextLine();
+                System.out.println("WARNING: NOT A NUMBER\nPlease Enter a number Below ");
             }
         }
     }

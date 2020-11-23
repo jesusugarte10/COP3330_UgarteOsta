@@ -1,4 +1,5 @@
 import java.io.FileNotFoundException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class App {
@@ -12,7 +13,8 @@ public class App {
         while (!exit) {
             System.out.print("\nSelect Your Application\n---------\n");
             System.out.print("\n1) Task list\n2) Contact list\n3) quit\n\n> ");
-            int choice = scan.nextInt();
+
+            int choice = getChoice();
 
             switch (choice) {
                 case 1:
@@ -28,9 +30,25 @@ public class App {
                 case 3:
                     exit = true;
                     break;
+
+                default:
+                    System.out.println("WARNING: Please Enter valid choice");
             }
         }
-
         System.out.println("\nProcess finished with exit code 0");
     }
+
+    private static int getChoice(){
+
+        while(true){ 
+            try{   
+                int choice = scan.nextInt();
+                return choice;
+            }catch(InputMismatchException ex){
+                scan.nextLine();
+                System.out.println("WARNING: NOT A NUMBER\n\nPlease Enter a number Below ");
+            }
+        }
+    }
+
 }
