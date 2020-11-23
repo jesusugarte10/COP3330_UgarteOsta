@@ -168,7 +168,7 @@ public class ContactApp {
         }
     }
     
-    private static int getChoice(){
+    private int getChoice(){
 
         while(true){ 
             try{   

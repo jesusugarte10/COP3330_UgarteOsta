@@ -46,7 +46,7 @@ public class App {
                 return choice;
             }catch(InputMismatchException ex){
                 scan.nextLine();
-                System.out.println("WARNING: NOT A NUMBER\n\nPlease Enter a number Below ");
+                System.out.println("WARNING: NOT A NUMBER\nPlease Enter a number Below ");
             }
         }
     }
